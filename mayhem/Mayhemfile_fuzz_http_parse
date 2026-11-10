@@ -1,0 +1,10 @@
+project: savantenvs/dperf
+target: fuzz_http_parse
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_http_parse/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_http_parse
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_http_parse/fuzz_http_parse.dict
+    timeout: 5
